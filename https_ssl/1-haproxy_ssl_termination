@@ -49,12 +49,6 @@ frontend www-https
     use_backend davidarua-backend if host_davidarua
     default_backend web-backend
 
-backend web-backend
-    redirect scheme https unless { ssl_fc }
-    balance roundrobin
-    server 5675-web-01 54.164.112.216:80 check
-    server 5675-web-02 54.196.46.153:80 check
-
 backend davidarua-backend
     redirect scheme https unless { ssl_fc }
     balance roundrobin
